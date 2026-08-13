@@ -1,0 +1,19 @@
+{
+  "name": "estimator3d",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Leap 3D Estimator — M1: deterministic takeoff + pricing engine",
+  "workspaces": [
+    "packages/engine",
+    "apps/web"
+  ],
+  "scripts": {
+    "test": "npm run test --workspace @estimator3d/engine",
+    "typecheck": "npm run typecheck --workspace @estimator3d/engine && npm run typecheck --workspace @estimator3d/web",
+    "build": "npm run build --workspace @estimator3d/engine && npm run build --workspace @estimator3d/web",
+    "dev": "npm run build --workspace @estimator3d/engine && npm run dev --workspace @estimator3d/web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
