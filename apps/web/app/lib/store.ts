@@ -3,6 +3,7 @@
 import {
   type Project,
   type Space,
+  approvedMockupRoom,
   parseProjects,
   serializeProjects,
 } from '@estimator3d/engine';
@@ -72,49 +73,11 @@ export function todayIso(): string {
 
 /**
  * The golden room from the approved mockup — 16 x 12 x 8, door south, windows north and
- * east. Seeded into every new project so the numbers on screen are the numbers Kevin
- * signed off on.
+ * east. Delegated to the engine on purpose: golden.test.ts locks that exact function, so
+ * the room the UI seeds cannot drift from the room the gate checks.
  */
 export function goldenSpace(name: string): Space {
-  return {
-    id: 'sp-1',
-    name,
-    width_ft: 16,
-    depth_ft: 12,
-    height_ft: 8,
-    dimensionSource: 'measured',
-    openings: [
-      {
-        id: 'op-1',
-        kind: 'door',
-        wall: 'S',
-        width_ft: 3,
-        height_ft: 6.67,
-        offset_ft: 2,
-        dimensionSource: 'measured',
-      },
-      {
-        id: 'op-2',
-        kind: 'window',
-        wall: 'N',
-        width_ft: 4,
-        height_ft: 3,
-        sill_ft: 3.5,
-        offset_ft: 3,
-        dimensionSource: 'measured',
-      },
-      {
-        id: 'op-3',
-        kind: 'window',
-        wall: 'E',
-        width_ft: 4,
-        height_ft: 3,
-        sill_ft: 3.5,
-        offset_ft: 4,
-        dimensionSource: 'measured',
-      },
-    ],
-  };
+  return approvedMockupRoom(name);
 }
 
 export const DEFAULT_ASSUMPTIONS = [

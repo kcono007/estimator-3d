@@ -12,6 +12,7 @@ export * from './estimate';
 export * from './project';
 export * from './proposal';
 export * from './persist';
+export * from './samples';
 
 import seedJson from './ratebook.seed.json';
 import { type RateBook, loadRateBook } from './ratebook';
