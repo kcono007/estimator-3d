@@ -9,6 +9,9 @@ export * from './roomgraph';
 export * from './takeoff';
 export * from './ratebook';
 export * from './estimate';
+export * from './project';
+export * from './proposal';
+export * from './persist';
 
 import seedJson from './ratebook.seed.json';
 import { type RateBook, loadRateBook } from './ratebook';
